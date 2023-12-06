@@ -12,7 +12,7 @@ const listPersonas = (req, res, next) => {
     })
 };
 
-module.exports = {listPersonas};
+
 
 const agregarDato = (req,res,next) => {
   const db = req.app.get("db"); //conexion a base de datos.
@@ -27,7 +27,7 @@ const agregarDato = (req,res,next) => {
     res.redirect("/personas"); //en la respuesta me redirige a la url tabla personas.
   })
 };
-module.exports = {agregarDato};
+
 
 const datoItem = (req, res, next) => {
     var db = req.app.get('db'); 
@@ -40,10 +40,10 @@ const datoItem = (req, res, next) => {
       res.render('edit', {item: row}); // va a mostrar por navegador la fila del item consultado.
     });
 };
-module.exports = {datoItem};
+
 
 const nuevoDato = (req, res, next) => {
-    var db = req.app.get('db');
+  var db = req.app.get('db');
   var id = req.params.id;
   var nombre = req.body.nombre;
   var email = req.body.email;
@@ -55,10 +55,10 @@ const nuevoDato = (req, res, next) => {
     res.redirect('/personas');
   });
 }; 
-module.exports = {nuevoDato};
+
 
 const borrarDato = (req, res, next) => {
-    var db = req.app.get('db'); 
+  var db = req.app.get('db'); 
   var id = req.params.id;
   db.run("DELETE FROM persona WHERE id=?",id, function(err) {
     if (err) {
@@ -68,4 +68,4 @@ const borrarDato = (req, res, next) => {
     res.redirect('/personas');
   });
 };
-module.exports = {borrarDato};
+module.exports = {listPersonas, borrarDato, agregarDato, nuevoDato, borrarDato, datoItem };
