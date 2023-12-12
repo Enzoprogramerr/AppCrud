@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
+
+<%- include('./head.ejs') %>
+
   <body>
     <h1>Confirma que desea eliminar ese registro?</h1>
     <form action="/delete/<%= item.id %>" method="post">

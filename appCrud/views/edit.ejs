@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Editar</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
+
+<%- include('./head.ejs') %>
+
     <body>
         <h1>Editar item</h1>
         <form action="/update/<%=item.id%>"  method="post"> <!-- actualiza la tabla con los datos de abajo por medio de "post" -->

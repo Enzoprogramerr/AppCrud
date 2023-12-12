@@ -8,18 +8,13 @@ router.get('/', function(req, res, next) {
 });
 
 router.get("/personas", controllers.listPersonas);
-
-router.get('/agregar', function(req, res, next) { //ruta para get agregar.
-  res.render('agregar', {});
-});
-
-router.post("/agregar", controllers.agregarDato); // método para agregar datos.
-
-router.get('/edit/:id', controllers.datoItem);  // metodo get para solicitar datos.
-
-router.post('/update/:id', controllers.nuevoDato); // metodo para actualizar dato por medio de id.
-
-router.get('/delete/:id', controllers.borrarDato); // solicito por medio de "get" borrar con un identificador de objeto "id"
-  
+router.get('/agregar', controllers.getAgregar);
+router.post("/agregar", controllers.postagregarDato); // método para agregar datos.
+router.get('/edit/:id', controllers.getdatoItem);  // metodo get para solicitar datos.
+router.post('/update/:id', controllers.postnuevoDato); // metodo para actualizar dato por medio de id.
+router.get('/delete/:id', controllers.getborrarDato); // solicito por medio de "get" borrar con un identificador de objeto "id"
+router.post('/delete/:id', controllers.postDeletePersona); // borro el dato
+router.get('/buscar', controllers.buscarPersona); 
+router.post('/resultados', controllers.buscarPersonaResultados);
 
 module.exports = router;

@@ -9,9 +9,10 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
-var sqlite3 = require("sqlite3"); //para buscar sqlite
-var db = new sqlite3.Database("./persona.db"); //para poder conectarnos a la base de datos
+//var sqlite3 = require("sqlite3"); //para buscar sqlite
+//var db = new sqlite3.Database("./persona.db"); //para poder conectarnos a la base de datos
 
+var db = require('./db') // Invoco al archivo donde esta la conexion al servidor.
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

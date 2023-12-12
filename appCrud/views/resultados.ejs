@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  
+<%- include('./head.ejs') %>
+
+  <body>
+    <h1>
+        <%=title %>
+    </h1>
+    <ul><!--recorro el arrai de listas de personas-->
+      <% personas.forEach(element => { %> <!--en el arrai "personas" hacemos el recorrido de sus elementos -->
+        <li>
+          <%= element.id + " " +  element.nombre%> <!-- mostrar el dato que se encuentra en el campo "id" y "nombre" del elemento -->
+        </li>
+      <% }) %>
+    </ul> 
+  </body>
+</html>
