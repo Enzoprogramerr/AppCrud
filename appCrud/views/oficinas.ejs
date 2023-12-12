@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+
+<%- include('./head.ejs') %>
+
+  <body>
+    <h1>Lista de oficinas</h1>
+    <ul><!--recorro el arrai de listas de oficinas-->
+      <% oficinas.forEach(element => { %> <!--en el arrai "oficinas" hacemos el recorrido de sus elementos -->
+        <li>
+          <%= element.id + " " +  element.denominacion%> <!-- mostrar el dato que se encuentra en el campo "id" y "nombre" del elemento -->
+        </li>
+      <% }) %>
+    </ul> 
+  </body>
+</html>

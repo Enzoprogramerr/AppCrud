@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+
+<%- include('./head.ejs') %>
+
+    <body>
+        <h1>Modificar Oficina</h1>
+        <form action="/updateOf/<%=item.id%>"  method="post"> <!-- actualiza la tabla con los datos de abajo por medio de "post" -->
+            <input type="text" name="denominacion" value="<%=item.denominacion%>" required>
+            <button type="submit">Update</button>
+        </form>
+    </body>
+</html>

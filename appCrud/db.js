@@ -40,9 +40,23 @@ const createTableSQL =  `
 
 db.query(createTableSQL, (err) => {
     if (err) {
-        console.log("Error al crear la tabla");
+        console.log("Error al crear la tabla Persona");
             return;
         }
+});
+
+
+const createTableOficina =  `
+    CREATE TABLE  IF NOT EXISTS oficina (
+        id INT AUTO_INCREMENT PRIMARY KEY, 
+        denominacion VARCHAR(255)
+    )`;
+
+db.query(createTableOficina, (err) => {
+    if (err) {
+        console.log("Error al crear la tabla Oficina");
+            return;
+            }
 });
 
 module.exports = db // para que sea visible desde afuera
