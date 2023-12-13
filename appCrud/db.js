@@ -1,7 +1,8 @@
 const mysql = require('mysql2') // Cargo el paquete que instalé
 
 const db = mysql.createConnection({  //Conexion al servidor
-    host: 'localhost',
+   // host: 'localhost',
+   host: 'mysql',
     user: 'root',
     password: '42384942',
 });

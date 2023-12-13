@@ -4,13 +4,22 @@
 <%- include('./head.ejs') %>
 
   <body>
+    <%- include('./navigation.ejs') %>
     <h1>Lista de oficinas</h1>
-    <ul><!--recorro el arrai de listas de oficinas-->
-      <% oficinas.forEach(element => { %> <!--en el arrai "oficinas" hacemos el recorrido de sus elementos -->
-        <li>
-          <%= element.id + " " +  element.denominacion%> <!-- mostrar el dato que se encuentra en el campo "id" y "nombre" del elemento -->
-        </li>
-      <% }) %>
-    </ul> 
+    <div class="container"> 
+        <% oficinas.forEach(element => { %>  <!--en el arrai "personas" hacemos el recorrido de sus elementos -->
+        <div class="row">
+            <div class="col-md-6 mt-3">  <!-- A partir de pantallas medianas el elemento ocupe 4 columnas -->
+              <%= element.id + "-" + element.denominacion  %>
+            </div>
+            <div class="col-md-6 mt-3">
+              <a class="btn btn-primary" href="/modificarOf/<%= element.id %>" role="button">EDITAR</a>
+              <a class="btn btn-primary" href="/deleteOf/<%= element.id %>" role="button">BORRAR</a>
+
+            </div> 
+        </div>
+        <% }) %>
+    </div>  
+       
   </body>
 </html>
