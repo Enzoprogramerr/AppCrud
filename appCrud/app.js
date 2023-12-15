@@ -44,8 +44,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(3000, () => {    //indico que nuestro servidor esta escuchando por el puerto 3000
-  console.log("server runing on port", 3000);
-});
+
 
 module.exports = app;

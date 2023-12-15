@@ -2,7 +2,8 @@ var express = require('express');
 
 const listPersonas = (req, res, next) => {
     const db = req.app.get("db");
-    const query = "SELECT * from persona";
+    const query = "SELECT persona.id, persona.nombre, persona.email, oficina.denominacion FROM persona JOIN oficina WHERE persona.oficina_id LIKE oficina.id"
+    //"SELECT persona.nombre, persona.email, oficina.denominacion FROM persona JOIN oficina WHERE persona.oficina_id LIKE oficina.id";
     db.query(query, function(err, rows){ // metodo para que corra la consulta //function toma dos parametros: manipulador de error, fila de las tablas.
         if (err){
           console.log(err);
@@ -20,8 +21,9 @@ const postagregarDato = (req,res,next) => {
   const db = req.app.get("db"); //conexion a base de datos.
   const nombre = req.body.nombre //saco del form la info en la parte de nombre.
   const email = req.body.email; //saco del form la info en la parte de email.
-  const query = "INSERT into persona(nombre, email) VALUES (?, ?)"; //agrego datos al form por medio de query.
-  db.query(query, [nombre,email], function(err){ //hago funcionar la base de datos por medio de insertar datos(query) donde va a recibir un array de nombre y email.
+  const oficina_id = req.body.oficina_id
+  const query = "INSERT into persona(nombre, email, oficina_id) VALUES (?, ?, ?)"; //agrego datos al form por medio de query.
+  db.query(query, [nombre,email,oficina_id], function(err){ //hago funcionar la base de datos por medio de insertar datos(query) donde va a recibir un array de nombre y email.
     if (err){
       console.log(err);
       return;

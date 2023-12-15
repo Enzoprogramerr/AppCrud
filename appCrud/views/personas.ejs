@@ -9,13 +9,17 @@
     <div class="container"> 
         <% personas.forEach(element => { %>  <!--en el arrai "personas" hacemos el recorrido de sus elementos -->
         <div class="row">
-            <div class="col-md-4 mt-3">  <!-- A partir de pantallas medianas el elemento ocupe 4 columnas -->
+            <div class="col-md-3 mt-3">  <!-- A partir de pantallas medianas el elemento ocupe 4 columnas -->
               <%= element.id + "-" + element.nombre  %>
             </div>
-            <div class="col-md-4 mt-3">
+            <div class="col-md-3 mt-3">
               <%= element.email  %>
             </div> 
-            <div class="col-md-4 mt-3">
+            <div class="col-md-3 mt-3">
+              <%= element.denominacion%>
+            </div> 
+            
+            <div class="col-md-3 mt-3">
               <a class="btn btn-primary" href="/edit/<%= element.id %>" role="button">EDITAR</a>
               <a class="btn btn-primary" href="/delete/<%= element.id %>" role="button">BORRAR</a>
 
